@@ -5,6 +5,7 @@ import { Home } from "lucide-react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layouts/default"; // available: default, navbar, sidebar
 import Index from "./pages/Index.jsx";
+
 const queryClient = new QueryClient();
 
 export const navItems = [
@@ -13,6 +14,7 @@ export const navItems = [
     to: "/",
     icon: <Home className="h-4 w-4" />,
   },
+  
 ];
 
 const App = () => {
