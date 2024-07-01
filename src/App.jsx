@@ -26,7 +26,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Index />} />
-              <Route path="drawing" element={<Drawing />} /> {/* New route for the drawing page */}
               {/* Add more routes here as needed */}
             </Route>
           </Routes>
