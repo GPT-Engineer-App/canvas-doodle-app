@@ -11,6 +11,9 @@ const Index = () => {
   const startDrawing = (e) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
+    ctx.strokeStyle = color;
+    ctx.lineWidth = tool === 'pen' ? 2 : 10;
+    ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
     setIsDrawing(true);
@@ -20,13 +23,8 @@ const Index = () => {
     if (!isDrawing) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    if (tool === 'pen') {
-      ctx.strokeStyle = color;
-      ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-      ctx.stroke();
-    } else if (tool === 'eraser') {
-      ctx.clearRect(e.nativeEvent.offsetX, e.nativeEvent.offsetY, 10, 10);
-    }
+    ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+    ctx.stroke();
   };
 
   const stopDrawing = () => {
